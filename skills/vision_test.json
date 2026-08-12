@@ -1,0 +1,109 @@
+{
+  "skill": {
+    "name": "Vision test",
+    "version": "0.1.0",
+    "robot": "navi",
+    "description": "Tests the vision blocks: camera feed, gestures, person position, camera off.",
+    "category": "Testing",
+    "tags": [
+      "vision"
+    ],
+    "compatibleRobots": [
+      "navi"
+    ],
+    "publishTo": [
+      "Teen store"
+    ],
+    "blocks": {
+      "blocks": {
+        "languageVersion": 0,
+        "blocks": [
+          {
+            "type": "zsibot_start",
+            "next": {
+              "block": {
+                "type": "zsibot_camera",
+                "fields": {
+                  "CAMERA": "front"
+                },
+                "next": {
+                  "block": {
+                    "type": "zsibot_repeat",
+                    "fields": {
+                      "TIMES": "3"
+                    },
+                    "inputs": {
+                      "DO": {
+                        "block": {
+                          "type": "variables_set",
+                          "fields": {
+                            "VAR": {
+                              "id": "id_g"
+                            }
+                          },
+                          "inputs": {
+                            "VALUE": {
+                              "block": {
+                                "type": "zsibot_gesture",
+                                "fields": {
+                                  "MAX": 4
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "zsibot_print",
+                              "inputs": {
+                                "VALUE": {
+                                  "block": {
+                                    "type": "variables_get",
+                                    "fields": {
+                                      "VAR": {
+                                        "id": "id_g"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "next": {
+                                "block": {
+                                  "type": "zsibot_print",
+                                  "inputs": {
+                                    "VALUE": {
+                                      "block": {
+                                        "type": "zsibot_human",
+                                        "fields": {
+                                          "VALUE": "x"
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "next": {
+                      "block": {
+                        "type": "zsibot_camera_off"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "variables": [
+        {
+          "id": "id_g",
+          "name": "g"
+        }
+      ]
+    }
+  }
+}

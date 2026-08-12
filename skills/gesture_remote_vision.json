@@ -1,0 +1,401 @@
+{
+  "skill": {
+    "name": "Gesture remote (vision)",
+    "version": "0.2.0",
+    "robot": "navi",
+    "description": "Camera: show palm / fist / wave / point to command the dog.",
+    "category": "Testing",
+    "tags": [
+      "vision"
+    ],
+    "compatibleRobots": [
+      "navi"
+    ],
+    "publishTo": [
+      "Teen store"
+    ],
+    "blocks": {
+      "blocks": {
+        "languageVersion": 0,
+        "blocks": [
+          {
+            "type": "zsibot_start",
+            "next": {
+              "block": {
+                "type": "zsibot_camera",
+                "fields": {
+                  "CAMERA": "front"
+                },
+                "next": {
+                  "block": {
+                    "type": "zsibot_forever",
+                    "inputs": {
+                      "DO": {
+                        "block": {
+                          "type": "variables_set",
+                          "fields": {
+                            "VAR": {
+                              "id": "id_g"
+                            }
+                          },
+                          "inputs": {
+                            "VALUE": {
+                              "block": {
+                                "type": "zsibot_gesture",
+                                "fields": {
+                                  "MAX": 5
+                                }
+                              }
+                            }
+                          },
+                          "next": {
+                            "block": {
+                              "type": "controls_if",
+                              "fields": {},
+                              "inputs": {
+                                "IF0": {
+                                  "block": {
+                                    "type": "logic_compare",
+                                    "fields": {
+                                      "OP": "EQ"
+                                    },
+                                    "inputs": {
+                                      "A": {
+                                        "block": {
+                                          "type": "variables_get",
+                                          "fields": {
+                                            "VAR": {
+                                              "id": "id_g"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "B": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "palm"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "DO0": {
+                                  "block": {
+                                    "type": "zsibot_stand",
+                                    "next": {
+                                      "block": {
+                                        "type": "zsibot_speak",
+                                        "fields": {
+                                          "VOICE": ""
+                                        },
+                                        "inputs": {
+                                          "TEXT": {
+                                            "shadow": {
+                                              "type": "text",
+                                              "fields": {
+                                                "TEXT": "Standing up!"
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "IF1": {
+                                  "block": {
+                                    "type": "logic_compare",
+                                    "fields": {
+                                      "OP": "EQ"
+                                    },
+                                    "inputs": {
+                                      "A": {
+                                        "block": {
+                                          "type": "variables_get",
+                                          "fields": {
+                                            "VAR": {
+                                              "id": "id_g"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "B": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "fist"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "DO1": {
+                                  "block": {
+                                    "type": "zsibot_lie",
+                                    "next": {
+                                      "block": {
+                                        "type": "zsibot_speak",
+                                        "fields": {
+                                          "VOICE": ""
+                                        },
+                                        "inputs": {
+                                          "TEXT": {
+                                            "shadow": {
+                                              "type": "text",
+                                              "fields": {
+                                                "TEXT": "Going down."
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "IF2": {
+                                  "block": {
+                                    "type": "logic_compare",
+                                    "fields": {
+                                      "OP": "EQ"
+                                    },
+                                    "inputs": {
+                                      "A": {
+                                        "block": {
+                                          "type": "variables_get",
+                                          "fields": {
+                                            "VAR": {
+                                              "id": "id_g"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "B": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "wave"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "DO2": {
+                                  "block": {
+                                    "type": "zsibot_speak",
+                                    "fields": {
+                                      "VOICE": ""
+                                    },
+                                    "inputs": {
+                                      "TEXT": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "Hello!"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "next": {
+                                      "block": {
+                                        "type": "zsibot_action",
+                                        "fields": {
+                                          "ACTION": "516"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "IF3": {
+                                  "block": {
+                                    "type": "logic_compare",
+                                    "fields": {
+                                      "OP": "EQ"
+                                    },
+                                    "inputs": {
+                                      "A": {
+                                        "block": {
+                                          "type": "variables_get",
+                                          "fields": {
+                                            "VAR": {
+                                              "id": "id_g"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "B": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "point"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "DO3": {
+                                  "block": {
+                                    "type": "zsibot_speak",
+                                    "fields": {
+                                      "VOICE": ""
+                                    },
+                                    "inputs": {
+                                      "TEXT": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "Turning right!"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "next": {
+                                      "block": {
+                                        "type": "zsibot_turn_right",
+                                        "fields": {
+                                          "YAW": "2",
+                                          "DURATION": "1"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "IF4": {
+                                  "block": {
+                                    "type": "logic_compare",
+                                    "fields": {
+                                      "OP": "EQ"
+                                    },
+                                    "inputs": {
+                                      "A": {
+                                        "block": {
+                                          "type": "variables_get",
+                                          "fields": {
+                                            "VAR": {
+                                              "id": "id_g"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "B": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "point-left"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "DO4": {
+                                  "block": {
+                                    "type": "zsibot_speak",
+                                    "fields": {
+                                      "VOICE": ""
+                                    },
+                                    "inputs": {
+                                      "TEXT": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "Turning left!"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "next": {
+                                      "block": {
+                                        "type": "zsibot_turn_left",
+                                        "fields": {
+                                          "YAW": 2,
+                                          "DURATION": 1
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "IF5": {
+                                  "block": {
+                                    "type": "logic_compare",
+                                    "fields": {
+                                      "OP": "EQ"
+                                    },
+                                    "inputs": {
+                                      "A": {
+                                        "block": {
+                                          "type": "variables_get",
+                                          "fields": {
+                                            "VAR": {
+                                              "id": "id_g"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "B": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "point-right"
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "DO5": {
+                                  "block": {
+                                    "type": "zsibot_speak",
+                                    "fields": {
+                                      "VOICE": ""
+                                    },
+                                    "inputs": {
+                                      "TEXT": {
+                                        "shadow": {
+                                          "type": "text",
+                                          "fields": {
+                                            "TEXT": "Turning right!"
+                                          }
+                                        }
+                                      }
+                                    },
+                                    "next": {
+                                      "block": {
+                                        "type": "zsibot_turn_right",
+                                        "fields": {
+                                          "YAW": 2,
+                                          "DURATION": 1
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "extraState": {
+                                "elseIfCount": 5
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "variables": [
+        {
+          "id": "id_g",
+          "name": "g"
+        }
+      ]
+    }
+  }
+}

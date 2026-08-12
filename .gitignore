@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Python (tools/*.py build/validate scripts)
+.venv/
+__pycache__/
+*.pyc
+
+# Reasonix agent workspace — private session/memory content
+.reasonix/
+
+# Logs
+*.log
